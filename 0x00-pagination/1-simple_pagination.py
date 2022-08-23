@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """
-simple helper function that return a tuple of size two containing a 
-start index and an end index corresponding to the range of indexes to 
-return in a list for those particular pagination parameters
+simple helper function
 """
 import csv
 import math
@@ -10,13 +8,15 @@ from typing import List
 
 
 def index_range(page, page_size):
+    """ returns a tuple of size 2 containing the start index and end index """
     if page and page_size:
         start_index = (page - 1) * page_size
         end_index = start_index + page_size
         return start_index, end_index
 
 class Server:
-    """Server class to paginate a database of popular baby names.
+    """
+    Server class to paginate a database of popular baby names.
     """
     DATA_FILE = "Popular_Baby_Names.csv"
 

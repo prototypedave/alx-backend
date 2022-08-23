@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """
-simple helper function that return a tuple of size two containing a 
-start index and an end index corresponding to the range of indexes to 
-return in a list for those particular pagination parameters
+simple helper function 
 """
 import csv
 import math
@@ -10,22 +8,22 @@ from typing import List
 
 
 def index_range(page, page_size):
+    """ returns a tuple of size 2 containing the start index and end index """
     if page and page_size:
         start_index = (page - 1) * page_size
         end_index = start_index + page_size
         return start_index, end_index
 
+
 class Server:
-    """Server class to paginate a database of popular baby names.
-    """
+    """Server class to paginate a database of popular baby names. """
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
         self.__dataset = None
 
     def dataset(self) -> List[List]:
-        """Cached dataset
-        """
+        """Cached dataset """
         if self.__dataset is None:
             with open(self.DATA_FILE) as f:
                 reader = csv.reader(f)
@@ -45,7 +43,7 @@ class Server:
         pages = self.dataset()
         return pages[start:end]
 
-     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Any]:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Any]:
         """ returns a dictionary """
         assert type(page) == int and page > 0
         assert type(page_size) == int and page_size > 0

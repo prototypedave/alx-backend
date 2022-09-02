@@ -5,21 +5,22 @@ babel setup
 
 from flask import Flask, render_template
 from flask_babel import Babel
-from babel.dates import UTC
+
 
 app = Flask(__name__)
 babel = Babel(app)
 
 
-class Config(object):
-    """ sets up default confugarions for babel """
+class Config:
+    """ sets up default configurations for babel """
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-app.config.from_oject(Config)
+app.config.from_object('1-app.Config')
 """sets all the defaults in class config """
+
 
 @app.route('/')
 def get_template():

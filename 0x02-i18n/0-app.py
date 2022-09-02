@@ -2,12 +2,13 @@
 
 from flask import Flask, render_template
 
-
 app = Flask(__name__)
 
-@app.route("/")
+
+@app.route('/')
 def get_file():
-    return render_template('index.html')
+    """ returns the contents of index.html in the flask application """
+    return render_template('0-index.html')
 
 
 if __name__ == "__main__":

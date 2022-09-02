@@ -4,7 +4,7 @@ babel setup
 """
 
 from flask import Flask, render_template
-import flask_babel import Babel
+from flask_babel import Babel
 from babel.dates import UTC
 
 app = Flask(__name__)
